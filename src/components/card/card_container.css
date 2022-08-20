@@ -1,0 +1,34 @@
+.cars-container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    
+}
+
+.card-cars-container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 180px;
+    height: 200px;
+    margin-top: 70px;
+
+    border: solid 1px black;
+    border-radius: 10px;
+
+    background-color: rgba(163, 163, 163, 0.359);
+
+}
+
+.list-card-details{
+    list-style: none;
+}
+
+.list-card-details span{
+    font-size: 18px;
+    font-weight: bold;
+}
