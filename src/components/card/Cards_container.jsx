@@ -1,9 +1,10 @@
+import axios from 'axios'
 import React from 'react'
 import "./card_container.css"
 
-const Cards_container = ({dataInfoCars}) => {
+const Cards_container = ({dataInfoCars,deleteCarById}) => {
   
-  console.log(dataInfoCars)
+  //console.log(dataInfoCars)
 
   return (
     <section className='cars-container'>
@@ -18,6 +19,9 @@ const Cards_container = ({dataInfoCars}) => {
               <li><span>Price: </span>{`${car.price} $`}</li>
               <li><span>id: </span>{car.id}</li>
             </ul>
+            <button 
+            onClick={() => deleteCarById(car.id)} 
+            className='btn'>Detele this Car</button>
           </div>
         ))
       }

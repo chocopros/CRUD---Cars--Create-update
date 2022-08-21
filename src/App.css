@@ -1,13 +1,13 @@
 .App-container{
-    background-image: url("https://images.unsplash.com/photo-1504215680853-026ed2a45def?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aGQlMjBjYXIlMjB3YWxscGFwZXJ8ZW58MHx8MHx8&w=1000&q=80");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    
     min-height: 100vh;
+    max-width: 1024px;
+    margin: 0 auto;
 }
 
 h1{
-    color: white;
+    color: black;
+}
+
+button{
+    padding: 5px;
 }
