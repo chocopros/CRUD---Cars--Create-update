@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import "./form.css"
+import axios from 'axios'
 
 const defaultValue = {
   brand: "",
@@ -10,13 +11,34 @@ const defaultValue = {
   price: ""
 }
 
-const HookForm = ({createNewCar}) => {
+const HookForm = ({createNewCar, updateInfo, getAllCars,setUpdateInfo}) => {
 
     const { register, handleSubmit, reset } = useForm()
 
+    useEffect(()=>{
+      if(updateInfo){
+        reset(updateInfo)
+      }
+      
+    },[updateInfo])
+
     const submit = data => {
-      createNewCar(data)
-      reset(defaultValue)
+      if(updateInfo){
+        //update
+        const url = `https://cars-crud.herokuapp.com/cars/${updateInfo.id}/`
+        axios.patch(url, data)
+          .then(res => {
+            console.log(res.data)
+            getAllCars()
+          })
+          .catch(err => console.log(err))
+          reset(defaultValue)
+          setUpdateInfo()
+      } else {
+        //create
+        reset(defaultValue)
+        createNewCar(data)
+      }
     }
 
   return (
@@ -42,8 +64,11 @@ const HookForm = ({createNewCar}) => {
           <label htmlFor="price">Price: </label>
           <input placeholder='Price' {...register('price')} type="number" id='price' />
         </div>
+        <div>
+          <button>Submit</button>
+        </div>
         
-        <button>Submit</button>
+        
     </form>
   )
 }

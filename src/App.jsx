@@ -43,16 +43,23 @@ function App() {
       .catch(err => console.log(err))
   }
 
+  //Udate State
+  const [updateInfo, setUpdateInfo] = useState()
+
   return (
     <div className="App-container">
       <h1>Practice C.R.U.D</h1>
       <HookForm
         createNewCar={createNewCar}
+        updateInfo={updateInfo}
+        getAllCars={getAllCars}
+        setUpdateInfo={setUpdateInfo}
       />
     
       <Cards_container 
         dataInfoCars={dataInfoCars}
         deleteCarById={deleteCarById}
+        setUpdateInfo={setUpdateInfo}
         />
       
     </div>
